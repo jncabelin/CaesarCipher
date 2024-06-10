@@ -9,6 +9,8 @@ while (true)
     Console.WriteLine("CLIENT ACTIVATED...");
     try
     {
+        // Initiate Caesar Decryption Service
+        var _caesarService = new CaesarCipherDecryptionService();
 
         // Establish the remote endpoint 
         // for the socket. This example 
@@ -60,10 +62,10 @@ while (true)
                                                 0, byteRecv);
 
             // Decrypt
-            string decodedString = await CaesarCipherDecryptionService.DecodeCaesarCypher(message);
+            string decodedString = await _caesarService.DecodeCaesarCipher(message);
 
             // Send Message
-            var jsonDict = await CaesarCipherDecryptionService.GetMaxValues(decodedString);
+            var jsonDict = await _caesarService.GetMaxValues(decodedString);
             var json = JsonConvert.SerializeObject(jsonDict);
             Console.WriteLine("Message Sent:" + json);
 

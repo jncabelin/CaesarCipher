@@ -1,14 +1,16 @@
-﻿using System;
-using System.Data;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
+﻿using System.Data;
+using ClientNode.Services;
 
 namespace ClientNode
 {
-	public class CaesarCipherDecryptionService
+	public class CaesarCipherDecryptionService: ICaesarCipherDecryptionService
 	{
-        public static async Task<string> DecodeCaesarCypher(string encryptedText)
+        public CaesarCipherDecryptionService()
+        {
+
+        }
+
+        public async Task<string> DecodeCaesarCipher(string encryptedText)
         {
             Console.WriteLine("Decoding...");
             await Task.CompletedTask;
@@ -22,7 +24,7 @@ namespace ClientNode
             return decryptedText;
         }
 
-        public static async Task<Dictionary<string, double>> GetMaxValues(string decryptedText)
+        public async Task<Dictionary<string, double>> GetMaxValues(string decryptedText)
         {
             await Task.CompletedTask;
             var table = ConvertCsvToDataTable(decryptedText);
@@ -39,7 +41,7 @@ namespace ClientNode
             return jsonDict;
         }
 
-        private static async Task<int> FindOffset(string encrypedText)
+        public async Task<int> FindOffset(string encrypedText)
         {
             await Task.CompletedTask;
             string validRowValues = ",.0123456789";
@@ -65,12 +67,14 @@ namespace ClientNode
                     }
                     else if (test == '\n')
                     {
+                        //Check if all characters in a row are Numbers
                         var distinct = string.Concat(tryParse.Distinct().OrderBy(c => c));
 
                         if (String.Compare(distinct, validRowValues) == 0)
                         {
                             break;
                         }
+                        index++;
                     }
                     else
                     {
@@ -103,7 +107,7 @@ namespace ClientNode
             }
 
             //Creating row for each line.(except the first line, which contain column names)
-            for (int row = 1; row < rows.Length - 1; row++)
+            for (int row = 1; row < rows.Length; row++)
             {
                 rowValues = rows[row].Split(',');
                 dr = dtData.NewRow();
