@@ -19,13 +19,25 @@ public class CaesarCipherController : ControllerBase
     [HttpGet("/DecryptFile")]
     public async Task<IActionResult> DecryptFile([FromQuery, BindRequired] string fileName)
     {
-        var fileString = await _cipherService.ReadEncryptedFile(fileName);
-        // Call AWS Batch Job API to queue a batch job.
+        try
+        {
+            var fileString = await _cipherService.ReadEncryptedFile(fileName);
+            // Call AWS Batch Job API to queue a batch job.
 
-        var response = await _cipherService.SendFileContent(fileString);
-        Console.WriteLine("Max Values from Message:\n"+response);
+            var response = await _cipherService.SendFileContent(fileString);
+            Console.WriteLine("Max Values from Message:\n" + response);
 
-        return Ok(response);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return new JsonResult(e.Message)
+            {
+                StatusCode = StatusCodes.Status500InternalServerError,
+            };
+        }
+
+
     }
 }
 
