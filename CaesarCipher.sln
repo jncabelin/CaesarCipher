@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientNode", "ClientNode\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterNodeAPI", "MasterNodeAPI\MasterNodeAPI.csproj", "{FF829073-9DB6-4106-9C41-205F60D8721A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NominalSystem.Tests", "NominalSystem.Tests\NominalSystem.Tests.csproj", "{1D1E6C6C-201B-42F3-ACE9-717E4E7EE740}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher.Tests", "CaesarCipher.Tests\CaesarCipher.Tests.csproj", "{CB393E7A-BF6A-4522-A227-E10A1C39BFCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{FF829073-9DB6-4106-9C41-205F60D8721A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF829073-9DB6-4106-9C41-205F60D8721A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF829073-9DB6-4106-9C41-205F60D8721A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D1E6C6C-201B-42F3-ACE9-717E4E7EE740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D1E6C6C-201B-42F3-ACE9-717E4E7EE740}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D1E6C6C-201B-42F3-ACE9-717E4E7EE740}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D1E6C6C-201B-42F3-ACE9-717E4E7EE740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB393E7A-BF6A-4522-A227-E10A1C39BFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB393E7A-BF6A-4522-A227-E10A1C39BFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB393E7A-BF6A-4522-A227-E10A1C39BFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB393E7A-BF6A-4522-A227-E10A1C39BFCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
