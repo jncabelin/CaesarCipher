@@ -22,7 +22,7 @@ Make sure that you have Docker installed on your machine & running.
 - (From ./MasterNodeAPI or ./ClientNode)`docker build . -t <image_name>`
 5. After a successful build, run the two containers using the commands:
 - MASTER Node: `docker run --name <server_container_name> --rm -d  -p <tcpPort>:<SOCKET_PORT> -p <webApiPort>:<WEBAPI_API_Port> <master_img_name>`
-- CLIENT Node: `docker run --name <client_container_name> --rm -it -P <client_img_name>`. Supply the corresponding IP Address and Port number from the Master Node.
+- CLIENT Node: `docker run --name <client_container_name> --rm -it -P <client_img_name>` Supply the corresponding IP Address and Port number from the Master Node.
 
 
 ### Technologies & Features
@@ -35,8 +35,10 @@ Make sure that you have Docker installed on your machine & running.
 ### Endpoints
 **Decrypt File**
 - `/decryptFile?fileName=<txtFileName>`
+- Supply the filename of the textfile (e.g. `encrypted_1.txt` or `encrypted_2.txt`)
 
 ## AWS Implementation 
+
 ![AWS Implementation of Caesar Cipher](./docs/CaesarCipher-AWS-Diagram.png)
 ### AWS Services
 - [x] **Elastic Load Balancer**
