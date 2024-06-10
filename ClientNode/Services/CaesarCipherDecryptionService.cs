@@ -33,8 +33,8 @@ namespace ClientNode
                          .Select(x => x.ColumnName)
                          .ToArray())
             {
-                double parsedValue;
                 double max = table.AsEnumerable()
+                    .Where(row => !String.IsNullOrEmpty(row[columnName].ToString()))
                     .Max(row => double.Parse(row[columnName].ToString()));
                 jsonDict.Add(columnName, max);
             }
