@@ -21,7 +21,7 @@ Make sure that you have Docker installed on your machine & running.
 4. In each respective directory, build the container images using the commands:
 - (From ./MasterNodeAPI or ./ClientNode)`docker build . -t <image_name>`
 5. After a successful build, run the two containers using the commands:
-- MASTER Node: `docker run --name <server_container_name> --rm -d  -p <tcpPort>:<SOCKET_PORT> -p <webApiPort>:<WEBAPI_API_Port> <master_img_name>`
+- MASTER Node: `docker run --name <server_container_name> --rm -d -p <webApiPort>:<WEBAPI_API_Port> <master_img_name>`
 - CLIENT Node: `docker run --name <client_container_name> --rm -it -P <client_img_name>` Supply the corresponding IP Address and Port number from the Master Node.
 
 
