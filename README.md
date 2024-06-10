@@ -19,9 +19,9 @@ Make sure that you have Docker installed on your machine & running.
 2. Update MasterAPI  DockerFile, WEB_API_Port
 3. Update launchSettings applicationUrl to WEB_API_Port
 4. In each respective directory, build the container images using the commands:
-- `docker build . -t <image_name>`
+- (From ./MasterNodeAPI or ./ClientNode)`docker build . -t <image_name>`
 5. After a successful build, run the two containers using the commands:
-- MASTER Node: `docker run --name <server_container_name> --rm -d  -p <tcpPort>:<SOCKET_PORT> <webApiPort>:<WEBAPI_API_Port> <master_img_name>`
+- MASTER Node: `docker run --name <server_container_name> --rm -d  -p <tcpPort>:<SOCKET_PORT> -p <webApiPort>:<WEBAPI_API_Port> <master_img_name>`
 - CLIENT Node: `docker run --name <client_container_name> --rm -it -P <client_img_name>`. Supply the corresponding IP Address and Port number from the Master Node.
 
 
@@ -44,8 +44,7 @@ Make sure that you have Docker installed on your machine & running.
 - [x] **Elastic Compute Cloud(Amazon EC2)**
 -Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS Cloud. The containerized Master and Clients will be deployed in the cloud using this service.
 - [x] **AWS Batch**
--AWS Batch allows applications to efficiently run hundreds of thousands of batch computing jobs while optimizing compute resources. New Client instances will be created based on the demand for decryption. For every request to the Master Node, a new tcp connection is established thus new client instances will be needed. The master node will queue a batch job by using the BatchClient API from the AWS SDK for .NET. 
--Batch Jobs are divided into 3 tasks:
+-AWS Batch allows applications to efficiently run hundreds of thousands of batch computing jobs while optimizing compute resources. New Client instances will be created based on the demand for decryption. For every request to the Master Node, a new tcp connection is established thus new client instances will be needed. The master node will queue a batch job by using the BatchClient API from the AWS SDK for .NET. Batch Jobs are divided into 3 tasks:
 1. Computation for the Offset
 2. Decoding the text file to CSV
 3. Finding the maximum values per column and saving to JSON
