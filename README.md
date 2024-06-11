@@ -10,7 +10,7 @@ This is a simple demo to decrypt Caesar Cipher Encrypted csv file. The are two D
 - [x] Calculate the maximum value of each column in the file Return the result in a JSON form.
 
 ## How to run the project
-Swagger UI: `<localhost:port>/swagger/index.html`
+Swagger UI (Debug Mode): `localhost:<WEB_API_Port>/swagger/index.html`
 
 **With Docker:**
 This will create a container with the application
@@ -42,7 +42,7 @@ Make sure that you have Docker installed on your machine & running.
 ![AWS Implementation of Caesar Cipher](./docs/CaesarCipher-AWS-Diagram.png)
 ### AWS Services
 - [x] **Elastic Load Balancer**
--The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This allows the isolation between the public API endpoints and the private network for socket communication.
+-The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This allows the isolation between the requests to the public API endpoints and the private network for socket communication between the Master and Client nodes.
 - [x] **Elastic Compute Cloud(Amazon EC2)**
 -Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS Cloud. The containerized Master and Clients will be deployed in the cloud using this service.
 - [x] **AWS Batch**
@@ -53,7 +53,7 @@ Make sure that you have Docker installed on your machine & running.
 - [x] **Elastic Container Registry (ECR)**
 -ECR stores, manages, deploys, and shares Docker containers that will be used by AWS Batch. Services such as AWS Auto Scaling can also be applied for greater scalability.
 - [x] **Virtual Private Cloud (VPC)**
--EC2 instances are deployed in a logically isolated defined virtual network. This virtual network closely resembles a traditional network.  
+-EC2 instances are deployed in a logically isolated defined virtual network. This virtual network closely resembles a traditional network and provides better network security for the Master and Client instances.  
 - [x] **Identity and Access Management (IAM)**
 -AWS Batch compute environments and container instances require AWS account credentials to make calls to other AWS APIs programmatically. An IAM role provides these credentials to the compute environments and container instances, then associate that role with the compute environments.
 
