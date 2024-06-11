@@ -41,8 +41,10 @@ Make sure that you have Docker installed on your machine & running.
 
 ![AWS Implementation of Caesar Cipher](./docs/CaesarCipher-AWS-Diagram.png)
 ### AWS Services
+- [x] **API Gateway**
+-The API Gateway receives requests, they actively manage incoming traffic and maintain service availability through rate limiting, preventing system overloads and ensuring consistent performance. This also allows the isolation between the requests to the public API endpoints and the private network for socket communication between the Master and Client nodes.
 - [x] **Elastic Load Balancer**
--The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This allows the isolation between the requests to the public API endpoints and the private network for socket communication between the Master and Client nodes.
+-The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. Load balancers are pivotal for scalability and can greatly improve the performance and efficiency of the application.
 - [x] **Elastic Compute Cloud(Amazon EC2)**
 -Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS Cloud. The containerized Master and Clients will be deployed in the cloud using this service.
 - [x] **AWS Batch**
